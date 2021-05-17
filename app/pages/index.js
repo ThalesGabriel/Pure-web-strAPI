@@ -70,7 +70,9 @@ export default function Index() {
         await launchGetInfoFromRepositoryQuery({ variables: { url: data.isRepositoryInDatabase.url }})
       }
     },
-    onError: (error) => {}
+    onError: (error) => {
+      console.log(error)
+    }
   });
 
   const [launchGetInfoFromRepositoryQuery, getInfoFromRepositoryQuery] = useLazyQuery(GET_INFO_FROM_REPOSITORY, {
@@ -80,14 +82,18 @@ export default function Index() {
       setData(data.getInfoFromRepository)
       setLoading(false)
     },
-    onError: (error) => {}
+    onError: (error) => {
+      console.log(error)
+    }
   });
 
   const [createInfoRepository, createInfoRepositoryMutation] = useMutation(CREATE_INFO_REPOSITORY, {
     onCompleted: async (data) => {
       await launchGetInfoFromRepositoryQuery({ variables: { url: data.createInfoRepository }})
     },
-    onError: (error) => {},
+    onError: (error) => {
+      console.log(error)
+    }
   });
 
   return (
