@@ -29,8 +29,6 @@ services:
     image: 042821/desafio-trustly:api-v1
     container_name: api
     restart: always
-    ports: 
-      - "4444:4444"
     links:
       - mongo
       - redis
