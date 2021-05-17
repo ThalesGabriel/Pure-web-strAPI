@@ -1,0 +1,36 @@
+scalar DateTime
+scalar JSON
+
+type Repository {
+  id: ID!
+  name: String!
+  user: String!
+  documents: [Document]
+  data: [JSON]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Document {
+  id: ID!
+  repository: Repository
+  information: DocumentInformation
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type DocumentInformation {
+  name: String!
+  extension: String
+  href: String
+  data: JSON
+}
+
+type Mutation {  
+  createInfoRepository(url: String!): String
+}
+
+type Query {
+  getInfoFromRepository(url: String!): Repository
+  isRepositoryInDatabase(url: String!): JSON
+}

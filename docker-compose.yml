@@ -1,0 +1,65 @@
+version: '3.3'
+services: 
+  nginx-api:
+    build:
+      context: ./api/nginx
+      dockerfile: Dockerfile
+    container_name: nginx-api
+    restart: always
+    networks: 
+      - db-network
+      - app-network
+    ports: 
+      - "8000:80"
+    depends_on:
+      - api
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/.next
+    ports: 
+      - "3000:3000"
+    env_file:
+      - ./app/.env
+    networks:
+      - app-network
+  api:
+    container_name: api
+    restart: always
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    links:
+      - mongo
+      - redis
+    networks:
+      - db-network
+    env_file:
+      - ./api/.env
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - db-network
+
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - db-network
+
+networks:
+  db-network:
+    driver: bridge
+  app-network:
+    driver: bridge

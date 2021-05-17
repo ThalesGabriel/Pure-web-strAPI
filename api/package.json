@@ -1,0 +1,61 @@
+{
+  "name": "trustly",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -e js,graphql -x node src/index.js",
+    "dev": "nodemon -e js,graphql -x node --inspect src/index.js",
+    "test": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-boost": "^0.4.9",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "6.0.0",
+    "express": "^4.17.1",
+    "graphql-cli": "^2.16.7",
+    "graphql-iso-date": "^3.6.1",
+    "graphql-playground-middleware-express": "^1.7.22",
+    "graphql-tag": "^2.12.4",
+    "graphql-type-json": "^0.3.2",
+    "graphql-yoga": "^1.18.3",
+    "ioredis": "^4.17.3",
+    "is-github-url": "^1.2.2",
+    "merge": "^2.1.1",
+    "mongodb": "^3.6.6",
+    "mongodb-memory-server": "^6.9.6",
+    "mongoose": "^5.9.10",
+    "mongoose-paginate": "^5.0.3",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^1.18.7",
+    "puppeteer": "^5.5.0",
+    "ramda": "^0.27.1",
+    "response-time": "^2.3.2",
+    "uuid": "^8.3.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "./dist"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "html"
+    ],
+    "moduleNameMapper": {
+      "^mongoose$": "<rootDir>/node_modules/mongoose"
+    }
+  },
+  "devDependencies": {
+    "@shelf/jest-mongodb": "^1.2.4",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
+    "jest-puppeteer": "^5.0.3",
+    "supertest": "^6.1.3"
+  }
+}
