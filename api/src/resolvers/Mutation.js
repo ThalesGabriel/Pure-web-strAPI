@@ -20,7 +20,7 @@ const mutations = {
         const href = getAttrFile[1]
         const extension = getAttrFile[2]
 
-        return await Document.create({
+        return   Document.create({
           repository,
           information: {
             name,

@@ -13,8 +13,7 @@ const verifyURL = async (url) => {
   if(!isGithubUrl(`https://github.com/${formatedURL}`)) throw new Error('It seems that URL is not from github.')
   // // if(!isGithubUrl(`https://github.com/${formatedURL}`), { repository: true }) throw new Error('It seems that URL is not a github repository.')
 
-  const argsWithDefault = {repoName, userName, url: `https://github.com/${formatedURL}`}
-  return argsWithDefault
+  return {repoName, userName, url: `https://github.com/${formatedURL}`}
 };
 
 module.exports = verifyURL
