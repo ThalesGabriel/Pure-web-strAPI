@@ -1,38 +1,34 @@
 version: '3.3'
 services: 
   nginx-api:
-    build:
-      context: ./api/nginx
-      dockerfile: Dockerfile
+    image: 042821/desafio-trustly:nginx-v1
     container_name: nginx-api
     restart: always
     networks: 
       - db-network
-      - app-network
+      # - app-network
     ports: 
       - "8000:80"
     depends_on:
       - api
-  app:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
-    volumes:
-      - ./app:/usr/src/app
-      - /usr/src/app/node_modules
-      - /usr/src/app/.next
-    ports: 
-      - "3000:3000"
-    env_file:
-      - ./app/.env
-    networks:
-      - app-network
+  # app:
+  #   build:
+  #     context: ./app
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - ./app:/usr/src/app
+  #     - /usr/src/app/node_modules
+  #     - /usr/src/app/.next
+  #   ports: 
+  #     - "3000:3000"
+  #   env_file:
+  #     - ./app/.env
+  #   networks:
+  #     - app-network
   api:
+    image: 042821/desafio-trustly:api-v1
     container_name: api
     restart: always
-    build:
-      context: ./api
-      dockerfile: Dockerfile
     ports: 
       - "4444:4444"
     links:
@@ -59,5 +55,5 @@ services:
 networks:
   db-network:
     driver: bridge
-  app-network:
-    driver: bridge
+  # app-network:
+  #   driver: bridge
