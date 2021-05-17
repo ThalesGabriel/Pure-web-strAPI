@@ -16,7 +16,6 @@ RepositorySchema.methods.addDocument = async function (listOfDocuments) {
   await this.save()
 };
 
-// RepositorySchema.index({ name: 1, user: 1 });
 const Repository = mongoose.model("Repository", RepositorySchema);
 
 module.exports = Repository;

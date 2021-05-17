@@ -42,7 +42,7 @@ const unmake = map((item) => ({
 const Query = {
   async getInfoFromRepository(parent, args, ctx, info) {
     const { url: plaiUrl } = args
-    const { repoName, userName, url } = await verifyURL(plaiUrl)
+    const { repoName, userName } = await verifyURL(plaiUrl)
     console.log('aqui', args)
     const repository = await Repository.findOne({user: userName, name: repoName})
     if(!repository) throw new Error("This repository does not exist in our base. please create info first.")
@@ -53,7 +53,7 @@ const Query = {
     const files = await Promise.all(
       repoFiles.map(async (file) => {
         file.information.data = await documentsUtils.loadFile(file.information.href);
-        return await file.save();
+        return   file.save();
       })
       );
       
