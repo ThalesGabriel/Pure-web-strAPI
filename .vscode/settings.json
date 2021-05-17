@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "sonarcloud",
-        "improvement"
+        "improvement",
+        "app"
     ]
 }
