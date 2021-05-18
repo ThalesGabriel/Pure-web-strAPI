@@ -115,6 +115,10 @@ git clone https://github.com/ThalesGabriel/Pure-web-strAPI.git
 git checkout develop
 ```
 
+2.1. Create a `.env` file in root of `api` folder
+
+- There is a `.env.sample`. Use the first code block on this file.
+
 3. Start the application
 
 ```
