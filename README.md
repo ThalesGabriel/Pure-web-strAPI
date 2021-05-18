@@ -6,7 +6,7 @@ I separated this document in 3 blocks:
 
 1. [Observation of Requirements](https://github.com/ThalesGabriel/Pure-web-strAPI/new/develop?readme=1#requirements)
 2. [How to run the app](https://github.com/ThalesGabriel/Pure-web-strAPI/new/develop?readme=1#-yeah-yeah-yeah-you-talked-a-lot-but-how-do-i-test-this-app-)
-3. [Compliments]
+3. [Bonus!](https://github.com/ThalesGabriel/Pure-web-strAPI/new/develop?readme=1#bonus)
 
 ## Requirements
 
@@ -61,6 +61,7 @@ I developed 2 approaches:
 
 - To get around this technical debt I counted on the help of the puppeteer. In short It is a library that could help me to await the page loads then get the result, i.e. the content with all links that goes to a file of that repository.
 - The coolest thing is that puppeteer does not need regex, I could just put the class that I was expecting to get invisible to get my content. Basically when the h3.mb-1 tag, `No results found`, gets invisible I return the content.
+
 ### 🎉 THAT WAS AWESOME BECAUSE THE REPOSITORY THAT LOADS ABOUT A MINUTE TO RETURN SOMETHING, SOMETIMES AN ERROR, NOW WITHOUT ERRORS IT WAS RETURNING IN 10 SECONDS. 🎉
 
 - [x] Your API must support thousands of concurrent requests;
@@ -179,13 +180,13 @@ query getInfoFromRepository($url: String!){
 
 ![text](https://raw.githubusercontent.com/ThalesGabriel/Pure-web-strAPI/develop/public/return.png "Successful")
 
-### Bônus 
+### Bonus 
 
-- You must have noticed that there is an `app` service on our `docker-compose.yml`. Basically I was doing a simple application with the same function of GraphQL Playground. The frontend app was made in NextJS, Apollo GraphQL, Material UI, Formik and Yup for forms and validations. It works locally but I could not complete the development in containers:
+- You must have noticed that there is an `app` service on our `docker-compose.yml`. Basically I was doing a simple application with the same function of GraphQL Playground. The frontend app was made in NextJS, Apollo GraphQL, Material UI, Formik and Yup for forms and validations. It works locally but I could not complete the development in containers: 
 
 ![text](https://raw.githubusercontent.com/ThalesGabriel/Pure-web-strAPI/develop/public/app.png "App")
 
-- To put some quality and play with my development I used `Github actions` to help me to test application to see if something would break something and what comes to be a simple play helped me a lot, mainly because of the time I had left, if I had merged something wrong I might not be able to have the patience to fix it anymore.
+- To put some quality and play with my development I used `Github actions` to play with `CI` and to help me to test application to see if something would break something and what comes to be a simple play helped me a lot, mainly because of the time I had left, if I had merged something wrong I might not be able to have the patience to fix it anymore.
 
 - I already put some integration with Sonarcloud to see some stats but I do not improved that, I have many bugs to solve rs.
 
