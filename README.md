@@ -6,7 +6,7 @@ I separated this document in 3 blocks:
 
 1. [Observation of Requirements](https://github.com/ThalesGabriel/Pure-web-strAPI/new/develop?readme=1#requirements)
 2. [How to run the app](https://github.com/ThalesGabriel/Pure-web-strAPI/new/develop?readme=1#-yeah-yeah-yeah-you-talked-a-lot-but-how-do-i-test-this-app-)
-3. [Bonus!](https://github.com/ThalesGabriel/Pure-web-strAPI/new/develop?readme=1#bonus)
+3. [Bonus!](https://github.com/ThalesGabriel/Pure-web-strAPI/blob/develop/README.md#bonus)
 
 ## Requirements
 
