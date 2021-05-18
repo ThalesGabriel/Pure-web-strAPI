@@ -179,6 +179,19 @@ query getInfoFromRepository($url: String!){
 
 ![text](https://raw.githubusercontent.com/ThalesGabriel/Pure-web-strAPI/develop/public/return.png "Successful")
 
-### Obs. You must have noticed that there is an `app` service on our `docker-compose.yml`. Basically I was doing a simple application with the same function of GraphQL Playground. The frontend app was made in NextJS, Apollo GraphQL, Material UI, Formik and Yup for forms and validations. It works locally but I could not complete the development in containers:
+### Bônus 
+
+- You must have noticed that there is an `app` service on our `docker-compose.yml`. Basically I was doing a simple application with the same function of GraphQL Playground. The frontend app was made in NextJS, Apollo GraphQL, Material UI, Formik and Yup for forms and validations. It works locally but I could not complete the development in containers:
 
 ![text](https://raw.githubusercontent.com/ThalesGabriel/Pure-web-strAPI/develop/public/app.png "App")
+
+- To put some quality and play with my development I used `Github actions` to help me to test application to see if something would break something and what comes to be a simple play helped me a lot, mainly because of the time I had left, if I had merged something wrong I might not be able to have the patience to fix it anymore.
+
+- I already put some integration with Sonarcloud to see some stats but I do not improved that, I have many bugs to solve rs.
+
+
+## That's all folks 🎉
+
+- As I said, I loved the challenge and the mindset that it brought to me. I don't have that experience with these tools, other than the API with GraphQL, but I did the best I could. Despite not having achieved all the results expected by you, I loved how much I was able to learn during the development of this application. 
+
+# Thank you for the opportunity to participate in this selection process!!
