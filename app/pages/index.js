@@ -143,7 +143,7 @@ export default function Index() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Box style={{paddingLeft: 50}}>
-            <Typography style={{marginBottom: 20}}>Resultado</Typography>
+            <Typography style={{marginBottom: 20}}>Result</Typography>
             <JSONPretty id="json-pretty" data={data}></JSONPretty>
           </Box>
         </Grid>
