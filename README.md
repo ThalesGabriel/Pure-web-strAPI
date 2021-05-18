@@ -4,8 +4,8 @@ Firstly it was a pleasure to spend time on this challenge, I really loved each l
 
 I separated this document in 3 blocks: 
 
-1. [Observation of Requirements](https://github.com/ThalesGabriel/Pure-web-strAPI/new/develop?readme=1#requirements)
-2. [How to run the app](https://github.com/ThalesGabriel/Pure-web-strAPI/new/develop?readme=1#-yeah-yeah-yeah-you-talked-a-lot-but-how-do-i-test-this-app-)
+1. [Observation of Requirements](https://github.com/ThalesGabriel/Pure-web-strAPI/blob/develop/README.md#requirements)
+2. [How to run the app](https://github.com/ThalesGabriel/Pure-web-strAPI/blob/develop/README.md#-yeah-yeah-yeah-you-talked-a-lot-but-how-do-i-test-this-app-)
 3. [Bonus!](https://github.com/ThalesGabriel/Pure-web-strAPI/blob/develop/README.md#bonus)
 
 ## Requirements
