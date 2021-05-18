@@ -5,7 +5,7 @@ const { verifyURL } = require("../middlewares");
 
 const mutations = {
   async createInfoRepository(parent, args, ctx, info) {
-    console.log("\nCarregando...\n");
+    console.log("\nLoading...\n");
     const { url: plaiUrl } = args
     const { repoName, userName, url } = await verifyURL(plaiUrl)
     const isRepository = await Repository.findOne({ name: repoName, user: userName })
@@ -20,7 +20,7 @@ const mutations = {
         const href = getAttrFile[1]
         const extension = getAttrFile[2]
 
-        return   Document.create({
+        return Document.create({
           repository,
           information: {
             name,

@@ -23,6 +23,7 @@ const {
   identity,
 } = R;
 
+// This Ramda Pipe will make our brute data return like we want to
 const transform = pipe(
   groupBy(prop('extension')),
   map(applySpec({
@@ -33,6 +34,9 @@ const transform = pipe(
   values,
 );
 
+// This Ramda map will help us to desctructure the information of a Document model because we have
+// lines, slocs, bytes nested in an attribute called data. Whe want to unmake to help in transform
+// function
 const unmake = map((item) => ({
   extension: item.information.extension,
   ...item.information.data,
@@ -43,7 +47,7 @@ const Query = {
   async getInfoFromRepository(parent, args, ctx, info) {
     const { url: plaiUrl } = args
     const { repoName, userName } = await verifyURL(plaiUrl)
-    console.log('aqui', args)
+    
     const repository = await Repository.findOne({user: userName, name: repoName})
     if(!repository) throw new Error("This repository does not exist in our base. please create info first.")
     if(repository?.data) return repository
@@ -52,8 +56,9 @@ const Query = {
     });
     const files = await Promise.all(
       repoFiles.map(async (file) => {
+        // The function loadFile is responsible for returning lines, slocs, bytes
         file.information.data = await documentsUtils.loadFile(file.information.href);
-        return   file.save();
+        return file.save();
       })
       );
       
@@ -68,6 +73,7 @@ const Query = {
     };
   },
 
+  // Just needs to work on Frontend to improve performance
   async isRepositoryInDatabase(parent, args, ctx, info) {
     const { url } = args;
     const cleanUrl = url.replace(/\s/g, '')
