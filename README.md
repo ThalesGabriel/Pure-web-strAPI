@@ -6,7 +6,7 @@ I separated this document in 3 blocks:
 
 1. [Observation of Requirements](https://github.com/ThalesGabriel/Pure-web-strAPI/new/develop?readme=1#requirements)
 2. [How to run the app](https://github.com/ThalesGabriel/Pure-web-strAPI/new/develop?readme=1#-yeah-yeah-yeah-you-talked-a-lot-but-how-do-i-test-this-app-)
-3. [Compliments]
+3. [Bonus!](https://github.com/ThalesGabriel/Pure-web-strAPI/blob/develop/README.md#bonus)
 
 ## Requirements
 
@@ -61,6 +61,7 @@ I developed 2 approaches:
 
 - To get around this technical debt I counted on the help of the puppeteer. In short It is a library that could help me to await the page loads then get the result, i.e. the content with all links that goes to a file of that repository.
 - The coolest thing is that puppeteer does not need regex, I could just put the class that I was expecting to get invisible to get my content. Basically when the h3.mb-1 tag, `No results found`, gets invisible I return the content.
+
 ### 🎉 THAT WAS AWESOME BECAUSE THE REPOSITORY THAT LOADS ABOUT A MINUTE TO RETURN SOMETHING, SOMETIMES AN ERROR, NOW WITHOUT ERRORS IT WAS RETURNING IN 10 SECONDS. 🎉
 
 - [x] Your API must support thousands of concurrent requests;
@@ -92,7 +93,7 @@ I developed 2 approaches:
 
 - [ ] You must deploy your solution to a cloud provider like Amazon AWS or Heroku and send us the link to access it. It’s a plus if you publish a Docker image with your application (including its dependencies) in a registry like Docker Hub and let us know how to get it.
 
-- [x] Docker image: I based all of the project on docker images so if you enter `docker-compose.yml` you would see some services, pay attention at 2 `api` and `nginx-api` you gonna find there the docker images
+- [x] Docker image: I based all of the project on docker images so if you enter `docker-compose.yml` you would see some services, pay attention at 2 `api` and `nginx-api` you gonna find there are the docker images
 
 - [ ] Cloud After the part I mentioned that I couldn't do with K8s, Istio and Fortio, I would deploy to AWS, but the time is up, I really couldn't try or I wouldn't have time to write this document.
 
@@ -124,15 +125,23 @@ docker-compose up -d --build
 docker ps
 ```
 
+![text](https://raw.githubusercontent.com/ThalesGabriel/Pure-web-strAPI/develop/public/containers.png "Containers")
+
 4.1. Obs. Give a look on the image sizes
 
 ```
 docker images
 ```
 
+![text](https://raw.githubusercontent.com/ThalesGabriel/Pure-web-strAPI/develop/public/images.png "Images")
+
 > Something I wanted to do but didn't have time was the multi staging build to decrease the size of the application. I managed to reduce the size to 950mb as in the image below but I couldn't connect the dots quickly to get everything working and I had to move on.
 
+![text](https://raw.githubusercontent.com/ThalesGabriel/Pure-web-strAPI/develop/public/api-size-msb.png "Image MSB")
+
 5. Open the browser in `http://localhost:8000` which is hosted by NGIX service pointing to our API in `http://app:4444`. They are sharing the same network, you gonna see something like that:
+
+![text](https://raw.githubusercontent.com/ThalesGabriel/Pure-web-strAPI/develop/public/playground.png "Playground")
 
 6. Make you first request
 
@@ -167,4 +176,23 @@ query getInfoFromRepository($url: String!){
 
 - You should pass the same URL that you used in the mutation if you want to see your data else you will receive a response like `This repository does not exist on our data`
 
-### Obs. You must have noticed that there is an `app` service on our `docker-compose.yml`. Basically I was doing a simple application with the same function of GraphQL Playground. The frontend app was made in NextJS, Apollo GraphQL, Material UI, Formik and Yup for forms and validations. It works locally but I could not complete the development in containers:
+- If you input the same repository on the creation of info you gonna receive something like that:
+
+![text](https://raw.githubusercontent.com/ThalesGabriel/Pure-web-strAPI/develop/public/return.png "Successful")
+
+### Bonus 
+
+- You must have noticed that there is an `app` service on our `docker-compose.yml`. Basically I was doing a simple application with the same function of GraphQL Playground. The frontend app was made in NextJS, Apollo GraphQL, Material UI, Formik and Yup for forms and validations. It works locally but I could not complete the development in containers: 
+
+![text](https://raw.githubusercontent.com/ThalesGabriel/Pure-web-strAPI/develop/public/app.png "App")
+
+- To put some quality and play with my development I used `Github actions` to play with `CI` and to help me to test application to see if something would break something and what comes to be a simple play helped me a lot, mainly because of the time I had left, if I had merged something wrong I might not be able to have the patience to fix it anymore.
+
+- I already put some integration with Sonarcloud to see some stats but I do not improved that, I have many bugs to solve rs.
+
+
+## That's all folks 🎉
+
+- As I said, I loved the challenge and the mindset that it brought to me. I don't have that experience with these tools, other than the API with GraphQL, but I did the best I could. Despite not having achieved all the results expected by you, I loved how much I was able to learn during the development of this application. 
+
+# Thank you for the opportunity to participate in this selection process!!
