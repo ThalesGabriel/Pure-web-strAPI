@@ -1,6 +1,6 @@
 # HEEEEEEEY, VISITOR!!!
 
-Firstly it was a pleasure spend time on this challenge, I really loved each line of code of this project. The goal of the project motivated me a lot! I'm gonna start this tiny documentation speaking of each requirement of this system. I will make an observation about how I developed this component on my app.
+Firstly it was a pleasure to spend time on this challenge, I really loved each line of code of this project. The goal of the project motivated me a lot! I'm gonna start this tiny documentation speaking of each requirement of this system. I will comment on how I developed this component on my app.
 
 I separated this document in 3 blocks: 
 
@@ -34,41 +34,41 @@ I separated this document in 3 blocks:
 - [x] Data must be retrieved from Github website by using web scraping techniques. Do not use Github’s API or download the source code as a ZIP file;
 - [x] Do not use web scraping libraries. We would like to know your ideas on how it can be done;
 
-OBS: Nice! At this moment I was really curious about how I would do that, how to do pure web scrap. At that moment I had a lot of work to do and as bonus I was on final of sprint on my current work so every free time that I had, I used to develop this part.
-### To build an API RESTful I used something that I'm very used to work which is NodeJS and GraphQL, represented by graphph-yoga. In short It is a fully-featured GraphQL Server with focus on easy setup, performance & great developer experience.
+OBS: Nice! At this moment I was really curious about how I would do that, how to do pure web scrap. At that moment I had a lot of work to do and as a bonus, I was on the final of the sprint on my current work so every free time that I had, I used to develop this part.
+### To build an API RESTful I used something that I'm very used to work which is NodeJS and GraphQL, represented by graphph-yoga. In short, It is a fully-featured GraphQL Server with focus on easy setup, performance & great developer experience.
 ### I used mongoose to quickly return data already fetched.
 ### I used RamdaJs to help me to work with the data that we want return
 
 #### "> Holy s@#$! So you didn't used express?"
 ![text](https://i.pinimg.com/originals/96/11/d2/9611d2fde013a9a5fca0d2766b44d09a.jpg "Young padawan")
 
-#### I almost did that but I was not worried about express because I had a short deadline and my job was not giving much time do spend on that, so I had to focus all my attention on develop the logic behind the scenes.
+#### I almost did that but I was not worried about express because I had a short deadline and my job was not giving me much time to spend on that, so I had to focus all my attention on developing the logic behind the scenes.
 "> Nice, got it. But how do you build all web scrap stuff?"
 
 I developed 2 approaches: 
 
 > The dumb one: I used to quickly finish this step but it was extremely unworthy. 
 
-- After making sure it was a valid url I used `node-fetch` library to make requests to the github repository. My goal here was to get the content of the page in text mode, so I could use regex to search for the link tags that was representing the files and folders
+- After making sure it was a valid URL I used `node-fetch` library to make requests to the github repository. My goal here was to get the content of the page in text mode, so I could use regex to search for the link tags that was representing the files and folders
 
-- If it was a folder I recursively used `node-fetch` again in the href of the link to get all documents inside of that folder
+- If it was a folder I recursively used `node-fetch` again in the href of the tag to get all documents inside of that folder
 
 #### I said it was a dumb one...
 
-> The least dumb one: When you enter in a git repository you see a button called `Go to file`. This button basically gets all files that you have in the given repository.
+> The least dumb one: When you enter in a git repository you see a button called `Go to file`. This button gets all files that you have in the given repository.
 
-- That is the approach I am using now. But I couldn't use `node-fetch` again because this lib does not wait events, It just gets content and return. That was a problem because the page that the `Go to file` button takes us to is a page that initially has an empty state and then loads the documents from the repository.
+- That is the approach I am using now. But I couldn't use `node-fetch` again because this lib does not wait for events, It just gets content and returns. That was a problem because the page that the `Go to file` button takes us to is a page that initially has an empty state and then loads the documents from the repository
 
-- To get around this technical debt I counted on the help of the puppeteer. In short It is a library that could help me to await the page loads then get the result, i.e. the content with all links that goes to a file of that repository.
-- The coolest thing is that puppeteer does not need regex, I could just put the class that I was expecting to get invisible to get my content. Basically when the h3.mb-1 tag, `No results found`, gets invisible I return the content.
+- To get around this technical debt I counted on the help of the puppeteer. In short, It is a library that could help me to await the page loads then get the result, i.e. the content with all links that goes to a file of that repository.
+- The coolest thing is that puppeteer does not need regex, I could just put the class that I was expecting to get invisible to get my content. Basically, when the h3.mb-1 tag, `No results found`, gets invisible I return the content.
 
 ### 🎉 THAT WAS AWESOME BECAUSE THE REPOSITORY THAT LOADS ABOUT A MINUTE TO RETURN SOMETHING, SOMETIMES AN ERROR, NOW WITHOUT ERRORS IT WAS RETURNING IN 10 SECONDS. 🎉
 
 - [x] Your API must support thousands of concurrent requests;
 
 - I used NGIX to act like a load balancer then in K8s I could do something better to support that.
-- To make sure everything works well and impress you guys I would use Fortio which is a tool that would help me do some stress tests so I would tell you with 100% certainty how much this API can handle. Unfortunately I have not so much experience in K8s so I couldn't do that in the time that I had :(
-- To ensure Observability I would take the wave of Istio because of the fortio and implement the istio itself so that we could see the flow of the application. Unfortunately I have not so much experience in K8s so I couldn't do that in the time that I had :(
+- To make sure everything works well and impress you guys I would use Fortio which is a tool that would help me do some stress tests so I would tell you with 100% certainty how much this API can handle. Unfortunately, I have not so much experience in K8s so I couldn't do that in the time that I had :(
+- To ensure Observability I would take the wave of Istio because of the fortio and implement the Istio itself so that we could see the flow of the application. Unfortunately, I have not so much experience in K8s so I couldn't do that in the time that I had :(
 
 - [x] We think it’s ok if the first request to a particular repository takes some time to respond (since you depend on Github website response times), but we don’t expect the subsequent requests to be long;
 
@@ -85,11 +85,13 @@ I developed 2 approaches:
 
 - [x] You are free to choose your API contracts (parameters and response formats) but we’d like to be able to integrate it with any other existing solutions;
 
-- We gonna talk about that later
+- We gonna talk about that later in the next section
 
 - [x] We’d like to see at least one automated test;
 
 - To accomplish that I used Jest to help me to write 3 tiny tests about the creations of entities with mongoose.
+
+![text](https://raw.githubusercontent.com/ThalesGabriel/Pure-web-strAPI/develop/public/tests.png "Tests")
 
 - [ ] You must deploy your solution to a cloud provider like Amazon AWS or Heroku and send us the link to access it. It’s a plus if you publish a Docker image with your application (including its dependencies) in a registry like Docker Hub and let us know how to get it.
 
